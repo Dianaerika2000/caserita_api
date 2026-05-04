@@ -1,1 +1,9 @@
-npx --no -- commitlint --edit "%1"
+node -e "
+const {execSync} = require('child_process');
+const msgFile = process.argv[1];
+try {
+  execSync('npx --no -- commitlint --edit ' + msgFile, {stdio: 'inherit'});
+} catch(e) {
+  process.exit(1);
+}
+" $1
