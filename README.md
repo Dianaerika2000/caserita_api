@@ -1,130 +1,356 @@
+# Caserita API
+
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
+  <img src="https://nestjs.com/img/logo-small.svg" width="80" alt="NestJS" />
 </p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
+<p align="center">
+  Backend oficial de la plataforma Caserita — construido con NestJS, PostgreSQL y TypeORM.
 </p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+<p align="center">
+  <img src="https://img.shields.io/badge/node-v22_LTS-brightgreen" alt="Node" />
+  <img src="https://img.shields.io/badge/nestjs-v11-red" alt="NestJS" />
+  <img src="https://img.shields.io/badge/typescript-5.7-blue" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/postgresql-16-336791" alt="PostgreSQL" />
+  <img src="https://img.shields.io/badge/CI-GitHub_Actions-black" alt="CI" />
+</p>
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+---
 
-## Project setup
+## Tabla de contenidos
 
-```bash
-$ npm install
-```
+- [Requisitos previos](#requisitos-previos)
+- [Instalación](#instalación)
+- [Variables de entorno](#variables-de-entorno)
+- [Comandos disponibles](#comandos-disponibles)
+- [Estructura del proyecto](#estructura-del-proyecto)
+- [Convención de commits](#convención-de-commits)
+- [Flujo de ramas](#flujo-de-ramas)
+- [CI/CD](#cicd)
+- [Documentación de la API](#documentación-de-la-api)
+- [Base de datos y migraciones](#base-de-datos-y-migraciones)
+- [Testing](#testing)
+- [Seguridad](#seguridad)
 
-## Compile and run the project
+---
 
-```bash
-# development
-$ npm run start
+## Requisitos previos
 
-# watch mode
-$ npm run start:dev
+Antes de clonar el repositorio asegúrate de tener instalado:
 
-# production mode
-$ npm run start:prod
-```
+| Herramienta | Versión mínima | Verificar con |
+|---|---|---|
+| Node.js | v22 LTS | `node --version` |
+| npm | v10+ | `npm --version` |
+| PostgreSQL | v16 | `psql --version` |
+| Git | cualquier | `git --version` |
 
-## Run tests
+> Se recomienda usar **nvm** para gestionar versiones de Node.js y **Git Bash** como terminal en Windows.
 
-```bash
-# unit tests
-$ npm run test
+---
 
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
-```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
-```
-
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
-
-## Resources
-
-Check out a few resources that may come in handy when working with NestJS:
-
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
-
-### Para corregir errores por Prettier usar el siguiente comando en consola 
+## Instalación
 
 ```bash
-$ npm run format
+# 1. Clonar el repositorio
+git clone https://github.com/Vane737/caserita_api.git
+cd caserita_api
+
+# 2. Usar la versión correcta de Node
+nvm use
+
+# 3. Instalar dependencias
+npm install
+
+# 4. Configurar variables de entorno
+cp .env.example .env
+# Editar .env con tus valores locales
+
+# 5. Crear la base de datos en PostgreSQL
+# Nombre sugerido: caserita_db
+
+# 6. Iniciar en modo desarrollo
+npm run start:dev
 ```
 
+Una vez iniciado:
+- **API:** `http://localhost:3000/api/v1`
+- **Swagger:** `http://localhost:3000/docs`
 
+---
+
+## Variables de entorno
+
+Copia `.env.example` a `.env` y completa los valores. **Nunca subas el archivo `.env` al repositorio.**
+
+```bash
+# Aplicación
+NODE_ENV=development
+PORT=3000
+
+# Base de datos
+DB_HOST=localhost
+DB_PORT=5432
+DB_USERNAME=postgres
+DB_PASSWORD=tu_password
+DB_DATABASE=caserita_db
+
+# JWT
+JWT_SECRET=genera_una_clave_aleatoria_de_minimo_32_caracteres
+JWT_EXPIRES_IN=7d
+```
+
+Para generar un `JWT_SECRET` seguro:
+
+```bash
+node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+```
+
+> ⚠️ El `JWT_SECRET` debe tener **mínimo 32 caracteres**. La app no arrancará si esta validación falla.
+
+---
+
+## Comandos disponibles
+
+```bash
+# Desarrollo
+npm run start:dev       # servidor con hot-reload
+npm run start:debug     # servidor en modo debug
+
+# Producción
+npm run build           # compilar TypeScript
+npm run start:prod      # iniciar desde el build
+
+# Calidad de código
+npm run lint            # ejecutar ESLint
+npm run format          # formatear con Prettier
+
+# Testing
+npm run test            # unit tests
+npm run test:watch      # unit tests en modo watch
+npm run test:cov        # tests con reporte de cobertura
+npm run test:e2e        # tests end-to-end
+
+# Base de datos
+npm run migration:generate  # generar nueva migración
+npm run migration:run       # aplicar migraciones pendientes
+npm run migration:revert    # revertir última migración
+```
+
+> Si ves errores de formato al hacer commit, corre `npm run format` para corregirlos automáticamente.
+
+---
+
+## Estructura del proyecto
 
 ```
-caserita-api
-├─ .prettierrc
-├─ eslint.config.mjs
-├─ nest-cli.json
-├─ package-lock.json
-├─ package.json
-├─ README.md
-├─ src
-│  ├─ app.controller.spec.ts
-│  ├─ app.controller.ts
-│  ├─ app.module.ts
-│  ├─ app.service.ts
-│  ├─ config
-│  │  └─ env.validation.ts
-│  └─ main.ts
-├─ test
-│  ├─ app.e2e-spec.ts
-│  └─ jest-e2e.json
-├─ tsconfig.build.json
-└─ tsconfig.json
+caserita-api/
+├── .github/
+│   └── workflows/
+│       └── ci.yml              ← pipeline de CI/CD
+├── .husky/
+│   ├── commit-msg              ← valida el mensaje del commit
+│   └── pre-commit              ← ejecuta lint antes de cada commit
+├── src/
+│   ├── config/
+│   │   ├── env.validation.ts   ← validación de variables de entorno con Joi
+│   │   └── data-source.ts      ← configuración de migraciones TypeORM
+│   ├── modules/
+│   │   └── [nombre-modulo]/
+│   │       ├── dto/            ← objetos de transferencia de datos
+│   │       ├── entities/       ← entidades de base de datos
+│   │       ├── [nombre].controller.ts
+│   │       ├── [nombre].service.ts
+│   │       ├── [nombre].repository.ts
+│   │       └── [nombre].module.ts
+│   ├── common/
+│   │   ├── filters/            ← manejo global de errores
+│   │   ├── guards/             ← autenticación y autorización
+│   │   ├── interceptors/
+│   │   └── pipes/
+│   ├── app.module.ts
+│   └── main.ts
+├── test/
+│   └── app.e2e-spec.ts
+├── .env.example                ← plantilla de variables de entorno
+├── .nvmrc                      ← versión de Node.js del proyecto
+├── commitlint.config.js        ← reglas de commits
+└── package.json
+```
+
+> **Regla:** cada módulo de negocio (users, auth, products, etc.) tiene su propia carpeta dentro de `src/modules/`. El código compartido entre módulos va en `src/common/`.
+
+---
+
+## Convención de commits
+
+Este proyecto usa **Conventional Commits**. Husky valida automáticamente cada commit y lo rechaza si no cumple el formato.
+
+### Formato
 
 ```
+tipo: descripción corta en minúsculas
+```
+
+### Tipos permitidos
+
+| Tipo | Cuándo usarlo |
+|---|---|
+| `feat` | Nueva funcionalidad |
+| `fix` | Corrección de un bug |
+| `docs` | Solo cambios en documentación |
+| `style` | Formato, espacios (sin cambio de lógica) |
+| `refactor` | Refactorización sin nueva funcionalidad ni bug fix |
+| `test` | Agregar o corregir tests |
+| `chore` | Mantenimiento, actualización de dependencias |
+| `perf` | Mejora de rendimiento |
+| `ci` | Cambios en configuración de CI/CD |
+
+### Ejemplos
+
+```bash
+# ✅ Válidos
+feat: add user registration endpoint
+fix: resolve token expiration issue
+docs: update environment setup steps
+chore: update nestjs to v11.1
+test: add unit tests for auth service
+refactor: simplify password hashing logic
+
+# ❌ Inválidos — serán rechazados automáticamente
+"agregué el login"
+"WIP"
+"Fix"
+"arreglando cosas"
+```
+
+> **Idioma:** usar inglés para los commits. Es el estándar del proyecto.
+
+---
+
+## Flujo de ramas
+
+| Rama | Propósito |
+|---|---|
+| `main` | Código en producción. Nunca hacer push directo. |
+| `develop` | Rama de integración. Base para nuevas features. |
+| `feature/nombre` | Nueva funcionalidad. Ej: `feature/auth-login` |
+| `fix/nombre` | Corrección de bug. Ej: `fix/token-expiration` |
+| `chore/nombre` | Mantenimiento. Ej: `chore/update-dependencies` |
+| `hotfix/nombre` | Fix urgente en producción. |
+
+### Flujo de trabajo
+
+```bash
+# 1. Partir siempre desde develop
+git checkout develop
+git pull origin develop
+git checkout -b feature/mi-nueva-feature
+
+# 2. Desarrollar y hacer commits
+git add .
+git commit -m "feat: add my new feature"
+
+# 3. Subir la rama
+git push origin feature/mi-nueva-feature
+
+# 4. Abrir Pull Request hacia develop en GitHub
+# 5. Esperar aprobación y que el CI esté en verde
+# 6. Hacer merge
+```
+
+> ⚠️ **Nunca** hacer push directo a `main` o `develop`. Todo cambio entra por Pull Request con mínimo 1 aprobación.
+
+---
+
+## CI/CD
+
+El pipeline de GitHub Actions se ejecuta automáticamente en cada push y Pull Request a `main` o `develop`.
+
+### Pasos del pipeline
+
+| Paso | Qué verifica |
+|---|---|
+| `install` | Instala dependencias con `npm ci` |
+| `lint` | Verifica ESLint y Prettier en todo el código |
+| `test:cov` | Corre todos los tests y verifica cobertura mínima |
+| `build` | Compila TypeScript y verifica que no haya errores |
+
+> Un Pull Request **no puede mergearse** si el pipeline falla. Asegúrate de correr `npm run lint` y `npm run test` localmente antes de hacer push.
+
+---
+
+## Documentación de la API
+
+Swagger está disponible únicamente en entorno de desarrollo:
+
+```
+http://localhost:3000/docs
+```
+
+Todos los endpoints y DTOs deben estar decorados correctamente con `@ApiOperation`, `@ApiResponse` y `@ApiProperty` para que la documentación se genere automáticamente.
+
+---
+
+## Base de datos y migraciones
+
+### Regla crítica sobre `synchronize`
+
+| Entorno | `synchronize` | Cómo se actualiza la BD |
+|---|---|---|
+| `development` | `true` ✅ | Automático al cambiar entidades |
+| `staging` | `false` ❌ | Solo con migraciones |
+| `production` | `false` ❌ | Solo con migraciones |
+
+> ⚠️ **NUNCA** usar `synchronize: true` en producción. Puede borrar columnas y datos reales.
+
+### Flujo de migraciones
+
+```bash
+# 1. Generar la migración después de cambiar una entidad
+npm run migration:generate -- src/migrations/NombreDescriptivo
+
+# 2. Revisar el archivo generado antes de aplicar
+# 3. Aplicar la migración
+npm run migration:run
+
+# Si algo sale mal, revertir
+npm run migration:revert
+```
+
+---
+
+## Testing
+
+```bash
+npm run test          # unit tests
+npm run test:cov      # con reporte de cobertura
+npm run test:e2e      # end-to-end
+```
+
+### Cobertura mínima requerida
+
+- **Services:** 80%
+- **Controllers:** 60%
+- **General:** 70%
+
+El CI rechaza Pull Requests que no alcancen la cobertura mínima.
+
+---
+
+## Seguridad
+
+- **Helmet** — cabeceras HTTP de seguridad activadas globalmente
+- **Rate limiting** — límite de 10 requests/segundo y 100 requests/minuto por IP
+- **JWT** — todos los endpoints privados requieren token Bearer válido
+- **Validación** — todos los datos de entrada pasan por DTOs con `class-validator`
+- **CORS** — configurado explícitamente por entorno
+
+> Para reportar una vulnerabilidad de seguridad, contactar directamente al equipo de desarrollo. No abrir issues públicos.
+
+---
+
+<p align="center">
+  Caserita API — v1.0.0 — Mayo 2026
+</p>
