@@ -21,10 +21,6 @@ export class Category {
   @Column({ length: 100 })
   name!: string;
 
-  @ApiProperty({ example: 'Ropa y accesorios para mujer', nullable: true })
-  @Column({ type: 'text', nullable: true })
-  description!: string | null;
-
   @ApiProperty({ example: true })
   @Column({ default: true })
   isActive!: boolean;

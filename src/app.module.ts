@@ -29,7 +29,7 @@ import { CategoriesModule } from './modules/categories/categories.module';
         password: config.get<string>('DB_PASSWORD'),
         database: config.get<string>('DB_DATABASE'),
         autoLoadEntities: true, // carga las entidades automáticamente
-        synchronize: config.get<string>('NODE_ENV') === 'development',
+        // synchronize: config.get<string>('NODE_ENV') === 'development',
         logging: config.get<string>('NODE_ENV') === 'development',
       }),
     }),
