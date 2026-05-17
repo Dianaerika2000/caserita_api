@@ -5,6 +5,7 @@ import { Logger } from 'nestjs-pino';
 import { ConfigService } from '@nestjs/config';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { ValidationPipe, VersioningType } from '@nestjs/common';
+import { ResponseInterceptor } from './common/interceptors/response.interceptor';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
@@ -53,6 +54,9 @@ async function bootstrap() {
       },
     }),
   );
+
+  // para poder mandar las respuestas y paginaciones de manera global
+  app.useGlobalInterceptors(new ResponseInterceptor());
 
   // ─── 6. Swagger (solo en desarrollo) ─────────────────────────────
   if (!isProduction) {

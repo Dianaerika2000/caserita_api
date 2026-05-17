@@ -7,6 +7,7 @@ import { LoggerModule } from 'nestjs-pino';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { envValidationSchema } from './config/env.validation';
+import { CategoriesModule } from './modules/categories/categories.module';
 
 @Module({
   imports: [
@@ -28,7 +29,7 @@ import { envValidationSchema } from './config/env.validation';
         password: config.get<string>('DB_PASSWORD'),
         database: config.get<string>('DB_DATABASE'),
         autoLoadEntities: true, // carga las entidades automáticamente
-        synchronize: config.get<string>('NODE_ENV') === 'development',
+        // synchronize: config.get<string>('NODE_ENV') === 'development',
         logging: config.get<string>('NODE_ENV') === 'development',
       }),
     }),
@@ -59,6 +60,7 @@ import { envValidationSchema } from './config/env.validation';
     }),
     // ─── 5. Health checks ─────────────────────────────────────────
     TerminusModule,
+    CategoriesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
