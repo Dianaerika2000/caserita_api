@@ -30,6 +30,7 @@ import { envValidationSchema } from './config/env.validation';
         autoLoadEntities: true, // carga las entidades automáticamente
         synchronize: config.get<string>('NODE_ENV') === 'development',
         logging: config.get<string>('NODE_ENV') === 'development',
+        ssl: true,
       }),
     }),
 
