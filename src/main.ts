@@ -83,6 +83,10 @@ async function bootstrap() {
   }
 
   // ─── 7. Arrancar servidor ─────────────────────────────────────────
+  console.log('App starting...');
+  console.log('DB_HOST:', process.env.DB_HOST);
+  console.log('NODE_ENV:', process.env.NODE_ENV);
+
   await app.listen(port);
 
   if (!isProduction) {
