@@ -41,7 +41,9 @@ export class StoreService {
     const category =
       await this.categoriesService.findParentCategory(categoryId);
 
-    const saltRounds = this.configService.get<number>('BCRYPT_SALT_ROUNDS', 10);
+    const saltRounds = Number(
+      this.configService.get<string>('BCRYPT_SALT_ROUNDS', '10'),
+    );
     const hashedPassword = await bcrypt.hash(password, saltRounds);
 
     const store = this.storeRepository.create({
@@ -88,7 +90,18 @@ export class StoreService {
     }
 
     if (schedules) {
-      store.schedules = this.storeScheduleRepository.create(schedules);
+      await this.storeScheduleRepository.delete({
+        store: {
+          id: store.id,
+        },
+      });
+
+      store.schedules = schedules.map((schedule) =>
+        this.storeScheduleRepository.create({
+          ...schedule,
+          store,
+        }),
+      );
     }
 
     Object.assign(store, storeData);

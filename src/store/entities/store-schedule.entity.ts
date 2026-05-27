@@ -15,28 +15,28 @@ import { Store } from './store.entity';
 @Unique(['store', 'dayOfWeek'])
 export class StoreSchedule {
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  id!: string;
 
   @Column({
     name: 'day_of_week',
     type: 'enum',
     enum: DayOfWeek,
   })
-  dayOfWeek: DayOfWeek;
+  dayOfWeek!: DayOfWeek;
 
   @Column({
     name: 'open_time',
     type: 'time',
     nullable: true,
   })
-  openTime: string;
+  openTime!: string;
 
   @Column({
     name: 'close_time',
     type: 'time',
     nullable: true,
   })
-  closeTime: string;
+  closeTime!: string;
 
   @ManyToOne(() => Store, (store) => store.schedules, {
     onDelete: 'CASCADE',
@@ -44,15 +44,15 @@ export class StoreSchedule {
   @JoinColumn({
     name: 'store_id',
   })
-  store: Store;
+  store!: Store;
 
   @CreateDateColumn({
     name: 'created_at',
   })
-  createdAt: Date;
+  createdAt!: Date;
 
   @UpdateDateColumn({
     name: 'updated_at',
   })
-  updatedAt: Date;
+  updatedAt!: Date;
 }

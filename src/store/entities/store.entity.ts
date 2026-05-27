@@ -19,46 +19,46 @@ import { Category } from '../../modules/categories/entities/category.entity';
 @Entity('stores')
 export class Store {
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  id!: string;
 
   @Column()
-  name: string;
+  name!: string;
 
   @Column({
     unique: true,
   })
-  email: string;
+  email!: string;
 
   @Column({
     select: false,
   })
-  password: string;
+  password!: string;
 
   @Column()
-  cellphone: string;
+  cellphone!: string;
 
   @Column({
     name: 'gallery_name',
   })
-  galleryName: string;
+  galleryName!: string;
 
   @Column({
     name: 'store_number',
   })
-  storeNumber: string;
+  storeNumber!: string;
 
   @Column({
     name: 'location_link',
     nullable: true,
   })
-  locationLink: string;
+  locationLink!: string;
 
   @Column({
     type: 'enum',
     enum: StoreStatus,
     default: StoreStatus.ACTIVE,
   })
-  status: StoreStatus;
+  status!: StoreStatus;
 
   @Column({
     name: 'payment_types',
@@ -66,7 +66,7 @@ export class Store {
     enum: PaymentType,
     array: true,
   })
-  paymentTypes: PaymentType[];
+  paymentTypes!: PaymentType[];
 
   @Column({
     name: 'sale_types',
@@ -74,18 +74,18 @@ export class Store {
     enum: SaleType,
     array: true,
   })
-  saleTypes: SaleType[];
+  saleTypes!: SaleType[];
 
   @Column({
     name: 'has_delivery',
     default: false,
   })
-  hasDelivery: boolean;
+  hasDelivery!: boolean;
 
   @Column({
     default: false,
   })
-  verified: boolean;
+  verified!: boolean;
 
   /*
    * CATEGORY RELATION
@@ -96,7 +96,7 @@ export class Store {
   @JoinColumn({
     name: 'category_id',
   })
-  category: Category;
+  category!: Category;
 
   /*
    * STORE SCHEDULES
@@ -105,15 +105,15 @@ export class Store {
     cascade: true,
     orphanedRowAction: 'delete',
   })
-  schedules: StoreSchedule[];
+  schedules!: StoreSchedule[];
 
   @CreateDateColumn({
     name: 'created_at',
   })
-  createdAt: Date;
+  createdAt!: Date;
 
   @UpdateDateColumn({
     name: 'updated_at',
   })
-  updatedAt: Date;
+  updatedAt!: Date;
 }
