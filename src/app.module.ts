@@ -31,6 +31,7 @@ import { CategoriesModule } from './modules/categories/categories.module';
         autoLoadEntities: true, // carga las entidades automáticamente
         // synchronize: config.get<string>('NODE_ENV') === 'development',
         logging: config.get<string>('NODE_ENV') === 'development',
+        ssl: true,
       }),
     }),
 
