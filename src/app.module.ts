@@ -8,6 +8,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { envValidationSchema } from './config/env.validation';
 import { CategoriesModule } from './modules/categories/categories.module';
+import { StoreModule } from './store/store.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { CategoriesModule } from './modules/categories/categories.module';
 
     // ─── 2. Base de datos ─────────────────────────────────────────
     TypeOrmModule.forRootAsync({
+      imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: (config: ConfigService) => ({
         type: 'postgres',
@@ -62,6 +64,7 @@ import { CategoriesModule } from './modules/categories/categories.module';
     // ─── 5. Health checks ─────────────────────────────────────────
     TerminusModule,
     CategoriesModule,
+    StoreModule,
   ],
   controllers: [AppController],
   providers: [AppService],

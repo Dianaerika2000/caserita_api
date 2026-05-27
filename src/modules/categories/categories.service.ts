@@ -168,4 +168,22 @@ export class CategoriesService {
 
     await this.categoryRepository.softDelete(id);
   }
+
+  async findParentCategory(id: string): Promise<Category> {
+    const category = await this.categoryRepository.findOne({
+      where: { id },
+    });
+
+    if (!category) {
+      throw new NotFoundException('Category not found');
+    }
+
+    if (category.parentId !== null) {
+      throw new BadRequestException(
+        'Store can only belong to parent categories',
+      );
+    }
+
+    return category;
+  }
 }

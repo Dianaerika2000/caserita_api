@@ -10,6 +10,7 @@ import {
   JoinColumn,
 } from 'typeorm';
 import { ApiProperty } from '@nestjs/swagger';
+import { Store } from '../../../store/entities/store.entity';
 
 @Entity('categories')
 export class Category {
@@ -51,4 +52,7 @@ export class Category {
 
   @DeleteDateColumn({ name: 'deleted_at' }) // soft delete
   deletedAt!: Date | null;
+
+  @OneToMany(() => Store, (store) => store.category)
+  stores!: Store[];
 }

@@ -27,4 +27,12 @@ export enum ResponseMessages {
   USER_FOUND = 'Usuario obtenido correctamente',
   USERS_FOUND = 'Usuarios obtenidos correctamente',
   USER_NOT_FOUND = 'Usuario no encontrado',
+
+  // ─── Stores ───────────────────────────────────────────────────
+  STORE_CREATED = 'Tienda registrada correctamente',
+  STORE_UPDATED = 'Tienda actualizada correctamente',
+  STORE_FOUND = 'Tienda obtenida correctamente',
+  STORES_FOUND = 'Tiendas obtenidas correctamente',
+  STORE_NOT_FOUND = 'Tienda no encontrada',
+  STORE_STATUS_UPDATED = 'Estado de la tienda actualizado correctamente',
 }
