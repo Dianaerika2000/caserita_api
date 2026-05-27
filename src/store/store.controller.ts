@@ -13,7 +13,7 @@ import { CreateStoreDto } from './dto/create-store.dto';
 import { UpdateStoreDto } from './dto/update-store.dto';
 import { ApiResponseDto } from '../common/dto/api-response.dto';
 import { Store } from './entities/store.entity';
-import { ResponseMessages } from 'src/common/enums/response-messages.enum';
+import { ResponseMessages } from '../common/enums/response-messages.enum';
 
 @ApiTags('Store')
 @Controller('store')
