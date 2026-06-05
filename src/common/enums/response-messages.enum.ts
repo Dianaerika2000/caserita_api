@@ -35,4 +35,10 @@ export enum ResponseMessages {
   STORES_FOUND = 'Tiendas obtenidas correctamente',
   STORE_NOT_FOUND = 'Tienda no encontrada',
   STORE_STATUS_UPDATED = 'Estado de la tienda actualizado correctamente',
+
+  CUSTOMER_CREATED = 'Cliente registrado correctamente',
+  CUSTOMER_UPDATED = 'Cliente actualizado correctamente',
+  CUSTOMER_FOUND = 'Cliente obtenido correctamente',
+  CUSTOMERS_FOUND = 'Clientes obtenidos correctamente',
+  CUSTOMER_NOT_FOUND = 'Cliente no encontrado',
 }

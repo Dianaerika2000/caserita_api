@@ -9,6 +9,7 @@ import { AppService } from './app.service';
 import { envValidationSchema } from './config/env.validation';
 import { CategoriesModule } from './modules/categories/categories.module';
 import { StoreModule } from './store/store.module';
+import { CustomerModule } from './customer/customer.module';
 
 @Module({
   imports: [
@@ -65,6 +66,7 @@ import { StoreModule } from './store/store.module';
     TerminusModule,
     CategoriesModule,
     StoreModule,
+    CustomerModule,
   ],
   controllers: [AppController],
   providers: [AppService],
