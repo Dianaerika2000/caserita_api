@@ -14,12 +14,6 @@ export enum ResponseMessages {
   CATEGORIES_FOUND = 'Categorías obtenidas correctamente',
   CATEGORY_NOT_FOUND = 'Categoría no encontrada',
 
-  // ─── Auth ─────────────────────────────────────────────────────
-  LOGIN_SUCCESS = 'Inicio de sesión exitoso',
-  LOGOUT_SUCCESS = 'Sesión cerrada correctamente',
-  UNAUTHORIZED = 'No autorizado',
-  FORBIDDEN = 'No tienes permisos para realizar esta acción',
-
   // ─── Usuarios ─────────────────────────────────────────────────
   USER_CREATED = 'Usuario creado correctamente',
   USER_UPDATED = 'Usuario actualizado correctamente',
@@ -41,4 +35,12 @@ export enum ResponseMessages {
   CUSTOMER_FOUND = 'Cliente obtenido correctamente',
   CUSTOMERS_FOUND = 'Clientes obtenidos correctamente',
   CUSTOMER_NOT_FOUND = 'Cliente no encontrado',
+
+  LOGIN_SUCCESS = 'Inicio de sesión exitoso',
+  LOGOUT_SUCCESS = 'Sesión cerrada correctamente',
+  UNAUTHORIZED = 'No autorizado',
+  FORBIDDEN = 'No tienes permisos para realizar esta acción',
+  INVALID_CREDENTIALS = 'Credenciales inválidas',
+  ACCOUNT_INACTIVE = 'La cuenta está inactiva',
+  ACCOUNT_BLOCKED = 'La cuenta está bloqueada',
 }
